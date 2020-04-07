@@ -68,13 +68,13 @@ public class CSLL
                 {
                     head = temp;
                     tail = temp;
-                    temp.next = temp;  // or tail.next=head
+                    tail.next = head;  // or tail.next=head
                 }
                 else              //It already has some node or atleast 1 node.
                 {
                     temp.next=head;
                     head = temp;
-                    tail.next = temp;  //or tail.next= head
+                    tail.next = head;
                 }
                 break;
 
