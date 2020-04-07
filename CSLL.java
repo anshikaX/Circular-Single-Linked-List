@@ -24,12 +24,12 @@ public class CSLL
             {
                 head = temp;
                 tail = temp;
-                temp.next = temp;
+                tail.next = head;
             } else              //There is more than one node in the linked list
             {
                 tail.next = temp;
-                temp.next = head;
                 tail = temp;
+                tail.next = head;
             }
         }
 
