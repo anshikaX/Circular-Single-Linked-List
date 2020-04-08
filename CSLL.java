@@ -68,7 +68,7 @@ public class CSLL
                 {
                     head = temp;
                     tail = temp;
-                    tail.next = head;  // or tail.next=head
+                    tail.next = head;
                 }
                 else              //It already has some node or atleast 1 node.
                 {
@@ -85,17 +85,26 @@ public class CSLL
                 System.out.println("Enter the position where you want to create a node");
                 int position = sc.nextInt();
 
-                if(position==1)
+                if(head==null && position==1)
                 {
-                    temp.next = head;
-                    head = temp;
+                    head=temp;
+                    tail=temp;
+                    tail.next=head;
+
+                }
+                else if(head!=null && position==1)
+                {
+                    temp.next=head;
+                    head=temp;
+                    tail.next=head;
+
 
                 }
                 else
                 {
                     Node currentNode = head;
                     int counter = 1;
-                    while (currentNode != null)
+                    while (currentNode != tail)
                     {
                         if (counter == position - 1)
                         {
@@ -104,25 +113,14 @@ public class CSLL
                         currentNode = currentNode.next;
                         counter = counter + 1;
 
-                        if(currentNode==head)
-                        {
-                            break;
-                        }
-
                     }
-                    if (currentNode!=head)
+                    if (currentNode!=tail)
                     {
-                        temp.next = currentNode.next;         //Temp node gets the address of it's next node
-                        currentNode.next = temp;             //Current Node gets the address of temp node to make a link
-                        if(currentNode == tail)
+                        if(currentNode.next == tail)
                         {
-                           tail=temp;
+                           tail=currentNode;
                         }
-                    }
-                    else if(position==2)
-                    {
-                        temp.next = currentNode.next;
-                        currentNode.next = temp;
+                        currentNode.next=currentNode.next.next;
                     }
                     else
                     {
