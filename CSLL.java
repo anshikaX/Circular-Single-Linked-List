@@ -102,30 +102,35 @@ public class CSLL
                 }
                 else
                 {
-                    Node currentNode = head;
-                    int counter = 1;
-                    while (currentNode != tail)
+                    Node currentNode=head;
+                    int counter=1;
+                    while(currentNode!=null)
                     {
-                        if (counter == position - 1)
+                        if(counter==position-1)
                         {
                             break;
                         }
-                        currentNode = currentNode.next;
-                        counter = counter + 1;
-
-                    }
-                    if (currentNode!=tail)
-                    {
-                        if(currentNode.next == tail)
+                        currentNode=currentNode.next;
+                        counter++;
+                        if(currentNode==head)
                         {
-                           tail=currentNode;
+                            break;
                         }
+                    }
+                    if(currentNode.next!=head)
+                    {
                         currentNode.next=currentNode.next.next;
+                        if(currentNode.next==tail)                //last position
+                        {
+                            tail=currentNode;
+                            tail.next=head;
+                        }
                     }
                     else
                     {
-                        System.out.println("Invalid position!!");
+                        System.out.println(" Invalid position");
                     }
+
                     break;
                 }
 
@@ -232,34 +237,31 @@ public class CSLL
                 }
                 else
                 {
-                    Node currentNode=head;
-                    int counter=1;
-                    while(currentNode!=null)
+                    Node currentNode = head;
+                    int counter = 1;
+                    while (currentNode != tail)
                     {
-                        if(counter==pos-1)
+                        if (counter == pos - 1)
                         {
                             break;
                         }
-                        currentNode=currentNode.next;
-                        counter++;
-                        if(currentNode==head)
-                        {
-                            break;
-                        }
+                        currentNode = currentNode.next;
+                        counter = counter + 1;
+
                     }
-                    if(currentNode.next!=head)
+                    if (currentNode!=tail)
                     {
-                        currentNode.next=currentNode.next.next;
-                        if(currentNode.next==tail)                //last position
+                        if(currentNode.next == tail)
                         {
                             tail=currentNode;
-                            tail.next=head;
                         }
+                        currentNode.next=currentNode.next.next;
                     }
                     else
                     {
-                        System.out.println(" Invalid position");
+                        System.out.println("Invalid position!!");
                     }
+
                 }
                 break;
 
